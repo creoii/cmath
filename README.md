@@ -7,5 +7,6 @@
  **Hipparchus** | 8500-44000ns | 6500-10500ns
  **Apache** | 14500-18500ns | 8500-13500ns
  **Jafama** | 105000-145000ns | 97000-105000ns
+ **Java** | 1500-9500ns
  
-*Tested with 100,000 runs each*
+*Tested with like 1,000,000 runs each*
