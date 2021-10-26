@@ -8,4 +8,4 @@
  **Apache** | 14500-18500ns | 8500-13500ns
  **Jafama** | 105000-145000ns | 97000-105000ns
  
-*Tested with 10,000 runs each*
+*Tested with 100,000 runs each*
