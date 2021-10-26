@@ -13,11 +13,9 @@ public class Main {
     public static List<Long> HIPPARCHUS = new ArrayList<>();
 
     public static void main(String[] args) {
-        for (int i = 0; i < 100; ++i) {
-            testPow();
+        for (int i = 0; i < 1000; ++i) {
+            testMult();
         }
-
-        System.out.println();
 
         long t1 = 0, t2 = 0, t3 = 0, t4 = 0;
 
@@ -34,10 +32,10 @@ public class Main {
             t4 += l;
         }
 
-        System.out.println("CMath Avg: ".concat(String.valueOf(t1 / 100)));
-        System.out.println("Jafama Avg: ".concat(String.valueOf(t2 / 100)));
-        System.out.println("Apache Avg: ".concat(String.valueOf(t3 / 100)));
-        System.out.println("Hipparchus Avg: ".concat(String.valueOf(t4 / 100)));
+        System.out.println("CMath Avg: ".concat(String.valueOf(t1 / 1000)));
+        System.out.println("Jafama Avg: ".concat(String.valueOf(t2 / 1000)));
+        System.out.println("Apache Avg: ".concat(String.valueOf(t3 / 1000)));
+        System.out.println("Hipparchus Avg: ".concat(String.valueOf(t4 / 1000)));
     }
 
     public static void testPow() {
@@ -71,10 +69,11 @@ public class Main {
         long startTime4 = System.nanoTime();
         int j4 = 5;
         int k4 = 5;
-        System.out.println(String.valueOf(j4).concat("^").concat(String.valueOf(k4)).concat(" = ").concat(BigInteger.valueOf(j4).pow(k4).toString()));
+        System.out.println(String.valueOf(j4).concat("^").concat(String.valueOf(k4)).concat(" = ").concat(String.valueOf(org.hipparchus.util.FastMath.pow(j4, k4))));
         long endTime4 = System.nanoTime() - startTime4;
         System.out.println("Hipparchus: ".concat(String.valueOf(endTime4)).concat("ns"));
         HIPPARCHUS.add(endTime4);
+        System.out.println();
     }
 
     public static void testMult() {
@@ -108,9 +107,10 @@ public class Main {
         long startTime4 = System.nanoTime();
         int j4 = 25;
         int k4 = 25;
-        System.out.println(String.valueOf(j4).concat("*").concat(String.valueOf(k4)).concat(" = ").concat(BigInteger.valueOf(j4).multiply(BigInteger.valueOf(k4)).toString()));
+        System.out.println(String.valueOf(j4).concat("*").concat(String.valueOf(k4)).concat(" = ").concat(String.valueOf(org.hipparchus.util.FastMath.multiplyExact(j4, k4))));
         long endTime4 = System.nanoTime() - startTime4;
         System.out.println("Hipparchus: ".concat(String.valueOf(endTime4)).concat("ns"));
         HIPPARCHUS.add(endTime4);
+        System.out.println();
     }
 }

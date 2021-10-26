@@ -1,6 +1,11 @@
 package io.creoii.cmath;
 
 public class CMath {
+    public static final double PI = 3.141592653;
+    public static final double E = 2.718281828;
+    public static final double DEG_2_RAD = 0.0174532925;
+    public static final double RAD_2_DEG = 57.2957795;
+
     /**
      * @param a - A number
      * @param b - An exponent
