@@ -1,16 +1,11 @@
 # cmath
  A hella fast math library
 
- Testing with 10,000 runs each for pow():
+ Testing with 10,000 runs each
  
- CMath: Avg 3500-8500ns
- Hipparchus: Avg 10000-12500ns
- Apache: Avg 14500-18500ns
- Jafama: Avg 105000-145000ns
+ **Library Name** | **pow()** in ns | **mult()** in ns
+ **CMath** | 3500-8500ns | 3500-7500ns
+ **Hipparchus** | 10000-12500ns | 8500-14000ns
+ **Apache** | 14500-18500ns | 8500-13500ns
+ **Jafama** | 105000-145000ns | 97000-105000ns
  
- Testing with 10,000 runs each for mult():
- 
- CMath: Avg 3500-7500ns
- Hipparchus: Avg 8500-14000ns
- Apache: Avg 8500-13500ns
- Jafama: Avg 97000-105000ns
