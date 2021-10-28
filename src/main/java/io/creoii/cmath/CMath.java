@@ -7,22 +7,28 @@ public class CMath {
     public static final double RAD_2_DEG = 57.2957795;
 
     /**
-     * @param a - A number
-     * @param b - An exponent
-     * @return a^b
+     * @bigO - O((n / 2) - 1)
+     *
+     * @param b - A number
+     * @param e - An exponent
+     * @return b^e
      */
-    public static int pow(int a, int b) {
-        if (a == 0) return 0;
-        else if (a == 1 || b == 1) return a;
-        else if (b != 0) {
-            int b2 = b >> 1, total = 1;
-            for (int i = 0; i < b2; ++i) {
-                total *= a;
-            }
+    public static double pow(int b, int e) {
+        if (b == 0) return 0;
+        else if (b == 1 || e == 1) return b;
+        else if (e > 0) {
+            byte b2 = (byte) (e >> 1);
+            int total = b;
+            for (byte i = 1; i < b2; ++i) total *= b;
             total *= total;
-
-            return b % 2 == 0 ? total : total * a;
-        } else return 1;
+            return (e & 1) == 1 ? total * b : total;
+        } else {
+            byte b2 = (byte) ((-e >> 1) + 1);
+            int total = b;
+            for (byte i = 1; i < b2; ++i) total *= b;
+            total *= total;
+            return 2d / ((e & 1) == 1 ? total * b : total);
+        }
     }
 
     /**
@@ -39,5 +45,13 @@ public class CMath {
         }
 
         return total;
+    }
+
+    /**
+     * @param a - A double
+     * @return The number rounded to the nearest integer
+     */
+    public static int round(double a) {
+        return ((int) (a < 0 ? a - .5d : a + .5d));
     }
 }
